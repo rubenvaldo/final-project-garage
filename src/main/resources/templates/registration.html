@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Registration</title>
+<link rel="stylesheet" 
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+	crossorigin="anonymous">
+
+</head>
+<body>
+
+	<!-- create navigation bar (header) -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#" th:href="@{/}">Registration and
+						Login Module</a>
+				</div>
+			</div>
+		</nav>
+		
+		<br>
+		<br>
+		
+		<!-- testing FE and BE -->
+		
+		<ul class="topnav">
+    <li class="left"><a href="jsdemo.html">Logo</a></li>
+    <li><a href="contact.html">Contacts</a></li>
+    <li><a href="team.html">Team</a></li>
+    <li><a href="our_work.html">Our Work</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a class="active" href="index.html">Home</a></li>
+  </ul>
+
+
+  <!----------------------HOME ------------------------->
+
+  <div class="container">
+    <div class="row">
+      <div class="summary col-sm-6">
+       <p>RELIABLE REPAIR OF YOUR CAR</p></br>
+       <p>DURING THE DAY WITH A GUARANTEE</p>
+
+      </div>
+      
+      <div class="col-sm-6">
+        <img class="profilepic" src="img/g13.jpg">
+      </div>
+    </div>
+  </div>
+  
+   <!----------------------ABOUT ------------------------->
+
+  <!-- ARVAL BRAZIL-->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>ABOUT</h1>
+      </div>
+    </div>
+ 
+
+  <div class="container">
+    <div class="row">
+      <div class="summary col-sm-6">
+        <h2>At Ger's we consider ourselves
+           a part of the big automobile community. 
+           We service all makes and models and take pride in every repair.</h2> </br>
+           <h3>When it comes to repairing or doing checkups on your car’s, 
+             all our team combined has almost a century of practical experience. 
+             We aim to make our service as reasonably priced as possible. 
+             That’s why we cut on all unessential business expenses.</h3> </br>
+             <h2>WHY CHOOSE US</h2></br>
+             <ul>
+               <li>FREE Loaner Cars</li>
+               <li>Collision repair;</li>
+               <li>Vehicle diagnostics;</li>
+               <li>Tire installation;</li>
+               <li>Brake repair.</li>
+             </ul>
+      </div>
+      
+      <div class="col-sm-6">
+        <img class="profilepic" src="img/about.jpg">
+      </div>
+    </div>
+   
+    </div>
+  </div>
+		
+	<!-- create HTML registration form -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+
+				<!-- success message -->
+				<div th:if="${param.success}">
+					<div class="alert alert-info">You've successfully registered
+						to our awesome garage!</div>
+				</div>
+
+				<h1>Registration</h1>
+
+				<form th:action="@{/registration}" method="post" th:object="${user}">
+					<div class="form-group">
+						<label class="control-label" for="firstName"> First Name </label>
+						<input id="firstName" class="form-control" th:field="*{firstName}"
+							required autofocus="autofocus" />
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="lastName"> Last Name </label> <input
+							id="lastName" class="form-control" th:field="*{lastName}"
+							required autofocus="autofocus" />
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="email"> Email </label> <input
+							id="email" class="form-control" th:field="*{email}" required
+							autofocus="autofocus" />
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="password"> Password </label> <input
+							id="password" class="form-control" type="password"
+							th:field="*{password}" required autofocus="autofocus" />
+					</div>
+
+					<div class="form-group">
+						<button type="submit" class="btn btn-success">Register</button>
+						<span>Already registered? <a href="/" th:href="@{/login}">Login
+								here</a></span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
