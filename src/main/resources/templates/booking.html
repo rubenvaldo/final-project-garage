@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Booking</title>
+<link rel="stylesheet" 
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+	crossorigin="anonymous">
+
+</head>
+<body>
+
+<!-- create navigation bar (header) -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#" th:href="@{/}">Booking Module </a>
+					</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+				</ul>
+			</div>
+						
+				</div>
+			</div>
+		</nav>
+		
+		<br>
+		<br>
+		
+	<!-- create HTML booking form -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+
+				<!-- success message -->
+				<div th:if="${param.success}">
+					<div class="alert alert-info">You've successfully booked
+						to our awesome garage!</div>
+				</div>
+
+				<h1>Make a booking</h1>
+				
+				<form th:action="@{/booking}" method="post" th:object="${booking}"> <!-- from controller public UserBookingDto userBookingDto -->
+					<div class="form-group">
+						<label class="control-label" for="make"> Make </label>
+						<input id="make" class="form-control" th:field="*{make}"
+							required autofocus="autofocus" />
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="type"> Type </label> <input
+							id="type" class="form-control" th:field="*{type}"
+							required autofocus="autofocus" />
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="licence_plate"> Licence Plate </label> <input
+							id="licence_plate" class="form-control" th:field="*{licence_plate}" required
+							autofocus="autofocus" />
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="engine_type"> Engine Type </label> <input
+							id="engine_type" class="form-control" type="engine_type"
+							th:field="*{engine_type}" required autofocus="autofocus" />
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label" for="service_type"> Service Type </label> <input
+							id="service_type" class="form-control" type="service_type"
+							th:field="*{service_type}" required autofocus="autofocus" />
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label" for="date"> Date </label> <input
+							id="date" class="form-control" type="date"
+							th:field="*{date}" required autofocus="autofocus" />
+					</div>
+
+					<div class="form-group">
+						<button type="submit" class="btn btn-success">Book</button>
+						<!--  
+						<span>Already registered? <a href="/" th:href="@{/login}">Login
+								here</a></span> -->
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

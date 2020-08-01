@@ -1,6 +1,8 @@
 package ie.cct.springboot.model;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,8 +13,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+
+
+
 import javax.persistence.JoinColumn;
 
 @Entity
@@ -42,14 +48,20 @@ public class User {
 					name = "user_id", referencedColumnName = "id"),
 			inverseJoinColumns = @JoinColumn(
 					name = "role_id", referencedColumnName = "id"))
-	
 	private Collection<Role> roles;
+	
 	
 	public User() {
 		
 	}
 	
-	
+	public User(Long id) {
+		super();
+		this.id = id;
+	}
+
+
+
 	public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
 		super();
 		this.firstName = firstName;
@@ -58,6 +70,7 @@ public class User {
 		this.password = password;
 		this.roles = roles;
 	}
+
 
 
 	public Long getId() {
