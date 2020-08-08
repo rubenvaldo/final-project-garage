@@ -10,6 +10,8 @@
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
 	crossorigin="anonymous">
 	
+<link th:href = "@{/img}">
+	
 </head>
 <body>
 
@@ -24,11 +26,13 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#" th:href="@{/}">Registration and
-					Login Module</a>
+				<a class="navbar-brand" href="#" th:href="@{/}">Ger's Garage</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/booking}">Home</a></li>
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/booking}">About us</a></li>
+					<li sec:authorize="isAuthenticated()"><a th:href="@{/booking}">Services</a></li>
 					<li sec:authorize="isAuthenticated()"><a th:href="@{/booking}">Booking</a></li>
 					<li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
 				</ul>
@@ -38,6 +42,61 @@
 
 	<br>
 	<br>
+	
+	<!----------------------HOME ------------------------->
+
+  <div class="container">
+    <div class="row">
+      <div class="summary col-sm-6">
+       <p>RELIABLE REPAIR OF YOUR CAR</p></br>
+       <p>DURING THE DAY WITH A GUARANTEE</p>
+
+      </div>
+      
+      <div class="col-sm-6">
+        <img class="profilepic" src="img/g13.jpg">
+      </div>
+    </div>
+  </div>
+  
+   <!----------------------ABOUT ------------------------->
+
+  <!-- ARVAL BRAZIL-->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>ABOUT</h1>
+      </div>
+    </div>
+ 
+
+  <div class="container">
+    <div class="row">
+      <div class="summary col-sm-6">
+        <h2>At Ger's we consider ourselves
+           a part of the big automobile community. 
+           We service all makes and models and take pride in every repair.</h2> </br>
+           <h3>When it comes to repairing or doing checkups on your car’s, 
+             all our team combined has almost a century of practical experience. 
+             We aim to make our service as reasonably priced as possible. 
+             That’s why we cut on all unessential business expenses.</h3> </br>
+             <h2>WHY CHOOSE US</h2></br>
+             <ul>
+               <li>FREE Loaner Cars</li>
+               <li>Collision repair;</li>
+               <li>Vehicle diagnostics;</li>
+               <li>Tire installation;</li>
+               <li>Brake repair.</li>
+             </ul>
+      </div>
+      
+      <div class="col-sm-6">
+        <img class="profilepic" src="img/about.jpg">
+      </div>
+    </div>
+   
+    </div>
+  </div>
 
 	<div class="container">
 		<h1>Registration and Login with Spring Boot, Spring Security,

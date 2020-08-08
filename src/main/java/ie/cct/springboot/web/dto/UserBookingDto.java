@@ -10,27 +10,17 @@ public class UserBookingDto {
 	private String engine_type;
 	private String service_type;
 	private String date;
-	private Long Id;
+	//private User Id;
+	private User user;
 	
 	
+	
+
+
 	public UserBookingDto() {
 		//super();
 	}
 	
-	
-
-	public UserBookingDto(String make, String type, String licence_plate, String engine_type, String service_type,
-			String date, Long id) {
-		super();
-		this.make = make;
-		this.type = type;
-		this.licence_plate = licence_plate;
-		this.engine_type = engine_type;
-		this.service_type = service_type;
-		this.date = date;
-		this.Id = id;
-	}
-
 
 
 	public UserBookingDto(String make, String type, String licence_plate, String engine_type, String service_type,
@@ -93,17 +83,26 @@ public class UserBookingDto {
 	}
 
 
-
-	public Long getId() {
+	/*
+	public User getId() {
 		return Id;
 	}
 
 
-
-	public void setId(Long id) {
-		this.Id = id;
+	public void setId(User id) {
+		Id = id;
 	}
+	*/
+
 	
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 	
 	
 	

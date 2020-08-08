@@ -29,6 +29,8 @@ public class Booking {
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false) 
 	private User user;
 	
+	//private Long user_id;
+	
 	
 	public Booking() {
 		//super();
@@ -37,6 +39,20 @@ public class Booking {
 	
 
 
+	public Booking(String make, String type, String licence_plate, String engine_type, String service_type,
+			String date) {
+		super();
+		this.make = make;
+		this.type = type;
+		this.licence_plate = licence_plate;
+		this.engine_type = engine_type;
+		this.service_type = service_type;
+		this.date = date;
+	}
+
+
+
+/*
 	public Booking(Long id, String make, String type, String licence_plate, String engine_type, String service_type,
 			String date, User user) {
 		super();
@@ -49,7 +65,7 @@ public class Booking {
 		this.date = date;
 		this.user = user;
 	}
-
+*/
 
 
 
@@ -69,14 +85,7 @@ public class Booking {
 
 
 
-	public Long getId() {
-		return id;
-	}
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
 
 
 	public String getMake() {
