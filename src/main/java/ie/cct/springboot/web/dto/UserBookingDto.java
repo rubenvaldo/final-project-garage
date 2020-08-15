@@ -1,6 +1,7 @@
 package ie.cct.springboot.web.dto;
 
 import ie.cct.springboot.model.User;
+import java.time.LocalDate;
 
 public class UserBookingDto {
 	
@@ -9,6 +10,7 @@ public class UserBookingDto {
 	private String licence_plate;
 	private String engine_type;
 	private String service_type;
+	
 	private String date;
 	//private User Id;
 	private User user;

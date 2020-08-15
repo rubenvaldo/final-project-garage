@@ -1,6 +1,8 @@
 package ie.cct.springboot.service;
 
 import java.util.Arrays;
+import java.time.LocalDate;
+
 import java.util.Collection;
 import java.util.stream.Collectors;
 
@@ -65,6 +67,20 @@ public class BookingServiceImpl implements BookingService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	@Override
+	public int getNumBookingsByDate(String date) {
+		int numBookingsOnThisDate = bookingRepository.countByDate(date);
+		return numBookingsOnThisDate;
+	}
+
+
+	@Override
+	public Collection<Booking> findByUserId(Long userId) {
+		Collection<Booking> booking = bookingRepository.findByUserId(userId);		
+		return booking;
+		}
 
 	/*
 

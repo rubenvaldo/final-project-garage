@@ -1,6 +1,7 @@
 package ie.cct.springboot.repository;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -16,7 +17,11 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
 	
 
 	//checking how many bookings with the same date and time
-	@Query(value = "SELECT count(*) FROM booking WHERE DAY(date) = DAY(:newDate)", nativeQuery = true)
-	public int countByDate(@Param("newDate") LocalDate date);
+	@Query(value = "SELECT count(*) FROM booking WHERE date = :newDate", nativeQuery = true)
+	public int countByDate(@Param("newDate") String date);
+	
+	@Query(value = "SELECT * FROM booking WHERE user_id = :userId", nativeQuery = true)
+	public Collection<Booking> findByUserId(Long userId);
+	
 
 }
