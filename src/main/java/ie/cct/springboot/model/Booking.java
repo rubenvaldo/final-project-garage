@@ -16,7 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "booking", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
-public class Booking {
+public class Booking { //
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
