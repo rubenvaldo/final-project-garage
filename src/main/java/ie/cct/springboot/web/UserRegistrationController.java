@@ -14,11 +14,22 @@ import ie.cct.springboot.web.dto.UserRegistrationDto;
 @RequestMapping("/registration")
 public class UserRegistrationController {
 	
-	private UserService userService;
+	private UserService userService; // inject userService interface implementation
 
-	public UserRegistrationController(UserService userService) {
+	public UserRegistrationController(UserService userService) { // constructor based dependency injection
 		super();
 		this.userService = userService;
+	}
+	
+	@PostMapping // handler method
+	public String registerUserAccount(@ModelAttribute("user") UserRegistrationDto registrationDto) { //user object contains form data (from the registration.html file)
+																									// binded to the dto object through UserRegistration registrationDto	
+		
+		userService.save(registrationDto);																
+		return "redirect:/registration?success"; // registration page with success message <div th:if="${param.success}">
+		
+		
+		
 	}
 	
 	@ModelAttribute("user")
@@ -27,16 +38,10 @@ public class UserRegistrationController {
 	}
 	
 	@GetMapping
-	public String showRegistrationForm() { //(Model model) {
-		//model.addAttribute("user", new UserRegistrationDto());
+	public String showRegistrationForm() { // method method that returns the registration view (registration.html is invoked)
 		return "registration";
 	}
 	
-	@PostMapping
-	public String registerUserAccount(@ModelAttribute("user") UserRegistrationDto registrationDto) {
-		userService.save(registrationDto);
-		return "redirect:/registration?success";
-		
-	}
+	// Adapted from https://github.com/RameshMF/registration-login-spring-boot-security-thymeleaf-hibernate
 
 }

@@ -14,14 +14,14 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import ie.cct.springboot.service.UserService;
 
 @Configuration
-@EnableWebSecurity
+@EnableWebSecurity // integrates Spring Security with Spring MVC
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	
-	@Autowired
-	private UserService userService;
+	@Autowired // injects UserService interface
+	private UserService userService;  
 	
 	@Bean
-	public BCryptPasswordEncoder passwordEncoder() {
+	public BCryptPasswordEncoder passwordEncoder() { // to encode password to the db
 		return new BCryptPasswordEncoder();
 	}
 	
@@ -29,7 +29,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	@Bean
 	public DaoAuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
-		auth.setUserDetailsService(userService);
+		auth.setUserDetailsService(userService); // need to implement UserDetailsService Interface (it has load user details method)
 		auth.setPasswordEncoder(passwordEncoder());
 		return auth;
 		
@@ -57,11 +57,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		.logout()
 		.invalidateHttpSession(true)
 		.clearAuthentication(true)
-		.logoutRequestMatcher(new AntPathRequestMatcher("/logout")) // when clicking logout, users should be allowed to return to home page
+		.logoutRequestMatcher(new AntPathRequestMatcher("/logout")) // when clicking logout, users should be allowed to return to login page
 		.logoutSuccessUrl("/login?logout")
 		.permitAll();
 		
 		// from this point, it's necessary to create a password encoder
 	}
+	
+	//Adapted from https://github.com/RameshMF/registration-login-spring-boot-security-thymeleaf-hibernate
 
 }

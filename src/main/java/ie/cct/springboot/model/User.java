@@ -35,6 +35,8 @@ public class User {
 	@Column(name = "last_name")
 	private String lastName;
 	
+	private String phoneNumber;
+	
 	//@Column(name = "email")
 	private String email;
 	
@@ -61,6 +63,20 @@ public class User {
 	}
 
 
+	
+
+	public User(String firstName, String lastName, String phoneNumber, String email, String password,
+			Collection<Role> roles) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		this.password = password;
+		this.roles = roles;
+	}
+	
+	/*
 
 	public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
 		super();
@@ -70,6 +86,7 @@ public class User {
 		this.password = password;
 		this.roles = roles;
 	}
+	*/
 
 
 
@@ -121,7 +138,15 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 
 	public Collection<Role> getRoles() {
 		return roles;

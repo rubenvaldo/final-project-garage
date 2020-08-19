@@ -1,4 +1,4 @@
-package ie.cct.springboot.service;
+ package ie.cct.springboot.service;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -22,7 +22,7 @@ import ie.cct.springboot.web.dto.UserRegistrationDto;
 public class UserServiceImpl implements UserService {
 
 	//@Autowired
-	private UserRepository userRepository;
+	private UserRepository userRepository; // to save user to the db
 	
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
@@ -36,8 +36,9 @@ public class UserServiceImpl implements UserService {
 	public User save(UserRegistrationDto registrationDto) {
 		User user = new User(registrationDto.getFirstName(),
 				registrationDto.getLastName(),
+				registrationDto.getPhoneNumber(),
 				registrationDto.getEmail(),
-				passwordEncoder.encode(registrationDto.getPassword()), Arrays.asList(new Role("ROLE_USER"))); 
+				passwordEncoder.encode(registrationDto.getPassword()), Arrays.asList(new Role("USER"))); 
 			
 		
 		return userRepository.save(user);

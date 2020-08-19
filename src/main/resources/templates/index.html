@@ -3,7 +3,7 @@
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta charset="UTF-8">
-<title>Registration and Login App</title>
+<title>Ger's Garage</title>
 
 <link rel="stylesheet" 
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
@@ -42,6 +42,11 @@
 
 	<br>
 	<br>
+	
+	<div class="container">
+		<h1>Ger's Garage Home Page</h1>
+		Welcome <span sec:authentication="principal.username"> User</span>
+	</div>
 	
 	<!----------------------HOME ------------------------->
 
@@ -98,10 +103,8 @@
     </div>
   </div>
 
-	<div class="container">
-		<h1>Ger's Garage Home Page</h1>
-		Welcome <span sec:authentication="principal.username"> User</span>
-	</div>
+	
 
 </body>
+<!-- Adapted from https://github.com/RameshMF/registration-login-spring-boot-security-thymeleaf-hibernate -->
 </html>

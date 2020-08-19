@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<!-- Adapted from https://github.com/RameshMF/registration-login-spring-boot-security-thymeleaf-hibernate -->
 <html>
 <head>
 <meta charset="UTF-8">
@@ -32,8 +32,10 @@
 		
 		<br>
 		<br>
+		<br>
+		<br>
 		
-		<!-- testing FE and BE -->
+		<!-- testing FE and BE 
 		
 		<ul class="topnav">
     <li class="left"><a href="jsdemo.html">Logo</a></li>
@@ -44,7 +46,7 @@
     <li><a href="about.html">About</a></li>
     <li><a class="active" href="index.html">Home</a></li>
   </ul>
-
+			-->
 
   <!----------------------HOME ------------------------->
 
@@ -124,6 +126,12 @@
 					<div class="form-group">
 						<label class="control-label" for="lastName"> Last Name </label> <input
 							id="lastName" class="form-control" th:field="*{lastName}"
+							required autofocus="autofocus" />
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label" for="phoneNumber"> Telephone Number </label> <input
+							id="phoneNumber" class="form-control" th:field="*{phoneNumber}"
 							required autofocus="autofocus" />
 					</div>
 

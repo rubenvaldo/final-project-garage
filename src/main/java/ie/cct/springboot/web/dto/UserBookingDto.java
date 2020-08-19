@@ -10,7 +10,7 @@ public class UserBookingDto {
 	private String licence_plate;
 	private String engine_type;
 	private String service_type;
-	
+	private String comment;
 	private String date;
 	//private User Id;
 	private User user;
@@ -23,6 +23,22 @@ public class UserBookingDto {
 		//super();
 	}
 	
+	
+
+
+	public UserBookingDto(String make, String type, String licence_plate, String engine_type, String service_type,
+			String comment, String date) {
+		super();
+		this.make = make;
+		this.type = type;
+		this.licence_plate = licence_plate;
+		this.engine_type = engine_type;
+		this.service_type = service_type;
+		this.comment = comment;
+		this.date = date;
+	}
+
+
 
 
 	public UserBookingDto(String make, String type, String licence_plate, String engine_type, String service_type,
@@ -97,6 +113,20 @@ public class UserBookingDto {
 	*/
 
 	
+	public String getComment() {
+		return comment;
+	}
+
+
+
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+
+
+
 	public User getUser() {
 		return user;
 	}

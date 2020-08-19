@@ -26,17 +26,7 @@ public class BookingServiceImpl implements BookingService{
 	
 	private BookingRepository bookingRepository;
 	
-	/*
-	private UserRepository userRepository;
 	
-
-	//
-	public BookingServiceImpl(UserRepository userRepository) {
-		super();
-		this.userRepository = userRepository;
-	}
-	*/
-
 
 	public BookingServiceImpl(BookingRepository bookingRepository) {
 		super();
@@ -50,7 +40,7 @@ public class BookingServiceImpl implements BookingService{
 
 		Booking booking = new Booking(bookingDto.getMake(), bookingDto.getType(), 
 				bookingDto.getLicence_plate(), bookingDto.getEngine_type(),
-				bookingDto.getService_type(), bookingDto.getDate(), bookingDto.getUser());
+				bookingDto.getService_type(), bookingDto.getComment(), bookingDto.getDate(), bookingDto.getUser());
 		
 		/*
 		Booking booking = new Booking(bookingDto.getMake(), bookingDto.getType(), 
@@ -82,31 +72,7 @@ public class BookingServiceImpl implements BookingService{
 		return booking;
 		}
 
-	/*
-
-	@Override
-	public UserDetails loadUserByUsername(String arg0) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	*/
-
-/*
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepository.findByEmail(username);
-		if(user == null) {
-			throw new UsernameNotFoundException("Invalid username or password");
-		}
-		
-		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), 
-				mapRolesToAuthorities(user.getRoles()));
-	}
 	
-	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
-		return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
-		
-		*/
 	
 
 }

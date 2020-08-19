@@ -16,7 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "booking", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
-public class Booking { //
+public class Booking { 
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,6 +26,7 @@ public class Booking { //
 	private String licence_plate;
 	private String engine_type;
 	private String service_type;
+	private String comment;
 
 
 
@@ -43,6 +44,23 @@ public class Booking { //
 	}
 	
 	
+
+
+	public Booking(String make, String type, String licence_plate, String engine_type, String service_type,
+			String comment, String date, User user) {
+		super();
+		this.make = make;
+		this.type = type;
+		this.licence_plate = licence_plate;
+		this.engine_type = engine_type;
+		this.service_type = service_type;
+		this.comment = comment;
+		this.date = date;
+		this.user = user;
+		
+	}
+
+
 
 
 	public Booking(String make, String type, String licence_plate, String engine_type, String service_type,
@@ -152,6 +170,20 @@ public class Booking { //
 	public void setDate(String date) {
 		this.date = date;
 	}
+
+
+	public String getComment() {
+		return comment;
+	}
+
+
+
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+
 
 
 	public User getUser() {
