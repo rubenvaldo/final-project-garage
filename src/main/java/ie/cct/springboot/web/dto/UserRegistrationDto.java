@@ -71,5 +71,5 @@ public class UserRegistrationDto {
 	}
 
 
-
+	// Adapted from https://github.com/RameshMF/registration-login-spring-boot-security-thymeleaf-hibernate
 }

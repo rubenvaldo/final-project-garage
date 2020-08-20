@@ -6,16 +6,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 	
+	@GetMapping("/login") // this method handler is called from the browser (localhost:XXXX/login)
+	public String login() {
+		return "login"; // it returns the login thymeleaf template
+	}
 	
 	@GetMapping("/")
 	public String home() {
 		return "index";
 	}
 	
-	@GetMapping("/login")
-	public String login() {
-		return "login";
-	}
 	
 	/*
 	@GetMapping("/booking")

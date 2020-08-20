@@ -32,8 +32,9 @@ public class UserRegistrationController {
 		
 	}
 	
-	@ModelAttribute("user")
-	public UserRegistrationDto userRegistrationDto() {
+	@ModelAttribute("user") // Thymeleaf gets a user object from here 
+	public UserRegistrationDto userRegistrationDto() { // this method returns a new object of userRegistrationDto
+														// user object comes from the form th:object="${user}"
 		return new UserRegistrationDto();
 	}
 	

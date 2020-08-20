@@ -8,7 +8,7 @@ import ie.cct.springboot.web.dto.UserRegistrationDto;
 // public interface UserService {
 // User save(UserRegistrationDto registrationDto);
 
-public interface UserService  extends UserDetailsService{
+public interface UserService  extends UserDetailsService{ //UserDetailsService from security
 	User save(UserRegistrationDto registrationDto);
 
 }

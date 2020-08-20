@@ -48,10 +48,8 @@ public class UserBookingController {
 		
 	}
 	
-	@GetMapping
-	public String showBookingForm() {
-
-		
+	@GetMapping 
+	public String showBookingForm() { // when accessing localhost:XXXX/booking
 		return "booking";
 	}
 	
@@ -120,5 +118,7 @@ public class UserBookingController {
 		
 	}
 	*/
+	
+	//Adapted from https://github.com/RameshMF/registration-login-spring-boot-security-thymeleaf-hibernate
 
 }

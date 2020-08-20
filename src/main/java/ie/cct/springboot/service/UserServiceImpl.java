@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 	private UserRepository userRepository; // to save user to the db
 	
 	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
+	private BCryptPasswordEncoder passwordEncoder; // provides encode method
 	
 	public UserServiceImpl(UserRepository userRepository) {
 		super();
@@ -41,12 +41,12 @@ public class UserServiceImpl implements UserService {
 				passwordEncoder.encode(registrationDto.getPassword()), Arrays.asList(new Role("USER"))); 
 			
 		
-		return userRepository.save(user);
+		return userRepository.save(user); // saves a user object to the db
 	}
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepository.findByEmail(username);
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {  // Security part
+		User user = userRepository.findByEmail(username); // username = email address (comes from the login screen)
 		if(user == null) {
 			throw new UsernameNotFoundException("Invalid username or password");
 		}
@@ -55,10 +55,12 @@ public class UserServiceImpl implements UserService {
 				mapRolesToAuthorities(user.getRoles()));
 	}
 	
-	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
+	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){ // maps roles to the authorities
 		return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
 		
 		
 	}
+	
+	// Adapted from https://github.com/RameshMF/registration-login-spring-boot-security-thymeleaf-hibernate
 
 }
